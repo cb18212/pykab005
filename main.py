@@ -94,11 +94,26 @@ print(binary_to_decimal("1"))         # 1
 #Part 3
 
 def ip_to_binary(ip):
-	if ip == "":
-		result = ""
-		for part in ip.split("."):
-			result += decimal_to_binary(part) + "."
+	str_array = ip.split(".")
+
+	if len(str_array) == 4:
+		is_first = True
 	else:
+		is_first = False
 
+	if ip == "":
+		return ip
+	elif not is_valid_part(str_array[0]):
+		print("Error: invalid IP address")
+		return
+	else:
+		current_part = str_array.pop()
+		ip = ""
+		for i in str_array:
+			ip += i + "."
+		return decimal_to_binary(current_part) + "." + ip_to_binary(ip)
 
-ip_to_binary("asethsth")
+print("IP 2 BIN")
+print(ip_to_binary("192.168.1.1"))  # "11000000.10101000.00000001.00000001"
+print(ip_to_binary("255.255.255.0"))  # "11111111.11111111.11111111.00000000"
+print(ip_to_binary("256.1.1.1"))  # "Invalid IP address"
