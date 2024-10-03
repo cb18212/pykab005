@@ -60,6 +60,7 @@ def test_1_1():
 	print(is_valid_ip("192.168.1"))  # False
 	print(is_valid_ip("192.168.01.1"))  # False
 
+test_1_1()
 #Part 2
 
 #Task 1
@@ -113,7 +114,7 @@ def ip_to_binary(ip):
 	return ("." if not isFirst else "") + dec + ip_to_binary(rest)
 
 
-print("IP 2 BIN")
+print("\nIP 2 BIN")
 print(ip_to_binary("192.168.1.1"))  # "11000000.10101000.00000001.00000001"
 print(ip_to_binary("255.255.255.0"))  # "11111111.11111111.11111111.00000000"
 print(ip_to_binary("256.1.1.1"))  # "Invalid IP address"
