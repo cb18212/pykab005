@@ -101,6 +101,9 @@ def ip_to_binary(ip):
 	else:
 		is_first = False
 
+	if len(str_array) == 0:
+		return ip
+
 	if ip == "":
 		return ip
 	elif not is_valid_part(str_array[0]):
